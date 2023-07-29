@@ -7,7 +7,10 @@ const App = () => {
   const [tabledata, setTabledata] = useState([
     {
       id: null,
-      name: null,
+      name: {
+        firstname: null,
+        lastname: null,
+      },
       Phone: null,
       email: null,
       address: {
@@ -20,11 +23,9 @@ const App = () => {
 
   const getTable = async () => {
     try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
-      );
+      const response = await fetch("http://localhost:3090/api/v1/getAllUsers");
       const data = await response.json();
-      setTabledata(data);
+      setTabledata(data.data);
     } catch (error) {
       console.log(error);
     }

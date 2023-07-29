@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Table = ({ fulldata }) => {
+  const [message, setMessage] = useState("");
+
   return (
-    <div className='central'>
-      <table className='tg'>
-        <thead>
-          <tr className='heading'>
-            <td>Serial No</td>
-            <td>FullName</td>
-            <td>Phone Number</td>
-            <td>Email Address</td>
-            <td>Street</td>
-          </tr>
-        </thead>
-        {fulldata.map((prodata, index) => (
+    <>
+      <div className='central'>
+        <div className='form'>
+          <input
+            type='text'
+            placeholder='Search here..'
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </div>
+
+        <table className='tg'>
+          <thead>
+            <tr className='heading'>
+              <td>Serial No</td>
+              <td>FullName</td>
+              <td>Phone Number</td>
+              <td>Email Address</td>
+              <td>Street</td>
+            </tr>
+          </thead>
+          {/* {fulldata.map((prodata, index) => (
           <>
             <tbody>
               <tr key={prodata.id}>
@@ -28,9 +40,29 @@ const Table = ({ fulldata }) => {
               </tr>
             </tbody>
           </>
-        ))}
-      </table>
-    </div>
+        ))} */}
+
+          {fulldata.map((data, i) => (
+            <>
+              <tbody>
+                <tr key={data.id}>
+                  <td>{i + 1}</td>
+                  <td>
+                    {data.name.firstname} {""} {data.name.lastname}
+                  </td>
+                  <td>{data.phone}</td>
+                  <td>{data.email}</td>
+                  <td>
+                    {data.address.number} {", "} {data.address.street} {", "}{" "}
+                    {data.address.city}
+                  </td>
+                </tr>
+              </tbody>
+            </>
+          ))}
+        </table>
+      </div>
+    </>
   );
 };
 

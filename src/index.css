@@ -8,12 +8,23 @@
 }
 
 .central {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  /* justify-content: center;
+  align-content: center; */
   padding: 7rem;
   background: linear-gradient(to right, #544a7d, #ffd452);
   height: 100vh;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 5px;
+  box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
 }
 
 .tg {
