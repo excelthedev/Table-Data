@@ -38,6 +38,7 @@ const App = () => {
 
   return (
     <div>
+      {/* passing the data as props */}
       <Table fulldata={tabledata} />
     </div>
   );
