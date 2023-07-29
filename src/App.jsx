@@ -23,7 +23,7 @@ const App = () => {
 
   const getTable = async () => {
     try {
-      const response = await fetch("https://fakestoreapi.com/users");
+      const response = await fetch("http://localhost:3090/api/v1/getAllUsers");
       const data = await response.json();
       setTabledata(data.data);
     } catch (error) {
